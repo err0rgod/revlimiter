@@ -3,7 +3,7 @@ import asyncio
 # token bucket 
 
 max_tokens = 10
-refill_rate = 10
+refill_rate = 2
 
 class TokenBucket:
     def __init__(self,max_tokens) -> None:
@@ -11,6 +11,8 @@ class TokenBucket:
 
     def HasTokens(self):
         return self.tokens>0
+    def howmany(self):
+        return self.tokens
     def consume_token(self):
         if self.HasTokens():
             self.tokens-=1 
@@ -23,12 +25,12 @@ class TokenBucket:
 bucket = TokenBucket(max_tokens=max_tokens)
 
 async def handleIncomingRequest(request_id: str):
-    if not bucket.hastokens():
+    if not bucket.HasTokens():
         print("Too many requests, please try again later")
         return 
 
+    print("request processing......")
     bucket.consume_token()
-    print("request processibg......")
 
     return True
 
@@ -39,6 +41,8 @@ async def wait_for(ms):
 
 async def setinterval():
     while True:
-        await asyncio.sleep(5)
-        if bucket.HasTokens< max_tokens:
+        await asyncio.sleep(refill_rate)
+        if bucket.howmany()< max_tokens:
             bucket.release_token()
+
+
