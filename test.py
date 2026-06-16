@@ -1,15 +1,14 @@
-from main import TokenBucket, handleIncomingRequest, setinterval
 import asyncio
+from leakybucket import LeakyBucket
 
-# bucket = TokenBucket(10)
-id = "1234"
+bucket = LeakyBucket(10,1)
 
-async def main():
-    asyncio.create_task(setinterval())
-    for i in range(1,100):
-        print(f"request number {i}")
-        await asyncio.sleep(1)
-        await handleIncomingRequest(id)
+bucket.addRequest(1)
+bucket.addRequest(1)
+bucket.addRequest(1)
+bucket.addRequest(1)
+bucket.addRequest(5)
+bucket.addRequest(10)
+bucket.addRequest(3)
+bucket.addRequest(1)
 
-
-asyncio.run(main())
