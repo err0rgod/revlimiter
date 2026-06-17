@@ -10,7 +10,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 license = { text = "MIT" }
 authors = [
-    { name = "Gemini CLI", email = "gemini-cli@example.com" },
+    { name = "Gemini CLI", email = "nirbhayerror@gmail.com" },
 ]
 keywords = [
     "ratelimit",
@@ -31,8 +31,8 @@ classifiers = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/revlimiter"
-Bug-Tracker = "https://github.com/yourusername/revlimiter/issues"
+Homepage = "https://github.com/err0rgod/revlimiter"
+Bug-Tracker = "https://github.com/err0rgod/revlimiter/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/revlimiter"]
