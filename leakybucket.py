@@ -9,7 +9,7 @@ class LeakyBucket:
 
     def _leak(self):
         now = time.time()
-        elapsed = now - self.last_check()
+        elapsed = now - self.last_checked
         leaked = elapsed * self.leak_rate
         self.storage = max(0,self.storage - leaked)
         self.last_checked = now
