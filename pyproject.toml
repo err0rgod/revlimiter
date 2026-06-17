@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "revlimiter"
+version = "0.1.0"
+description = "A simple and efficient rate limiting library implementing Token Bucket and Leaky Bucket algorithms."
+readme = "README.md"
+requires-python = ">=3.7"
+license = { text = "MIT" }
+authors = [
+    { name = "Gemini CLI", email = "gemini-cli@example.com" },
+]
+keywords = [
+    "ratelimit",
+    "token-bucket",
+    "leaky-bucket",
+    "api",
+    "throttle",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/revlimiter"
+Bug-Tracker = "https://github.com/yourusername/revlimiter/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/revlimiter"]
